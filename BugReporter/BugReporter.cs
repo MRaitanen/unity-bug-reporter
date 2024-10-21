@@ -8,10 +8,7 @@ using UnityEngine;
 
 public static class BugReporter
 {
-    // HttpClient object to send HTTP requests
     private static readonly HttpClient httpClient = new HttpClient();
-
-    // Path to the config file
     private static string _configPath = Path.Combine(Application.persistentDataPath, "BugReporterConfig.json");
 
     private static string sysInfoString, extraInfoString;

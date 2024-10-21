@@ -3,11 +3,18 @@ using UnityEngine.UI;
 
 public class BugReporterUI : MonoBehaviour
 {
+    [Header("UI Elements")]
+    public GameObject bugReporterPanel;
     public InputField titleInputField;
     public InputField descriptionInputField;
     public Toggle sysInfoToggle;
     public Toggle extraInfoToggle;
     public Button sendButton;
+
+    [Header("Key Bindings")]
+    public KeyCode toggleKey = KeyCode.F6;
+
+    private bool _isOpen = false;
 
     // BugReporter config
     private BugReporterConfig config;
@@ -19,6 +26,19 @@ public class BugReporterUI : MonoBehaviour
 
         // Assign the button click handler
         sendButton.onClick.AddListener(OnSendButtonClicked);
+
+        // Hide the bug reporter panel
+        bugReporterPanel.SetActive(false);
+    }
+
+    void Update()
+    {
+        // Toggle the bug reporter panel on/off
+        if (Input.GetKeyDown(toggleKey))
+        {
+            _isOpen = !_isOpen;
+            bugReporterPanel.SetActive(_isOpen);
+        }
     }
 
     private async void OnSendButtonClicked()
