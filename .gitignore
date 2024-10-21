@@ -51,6 +51,7 @@ ExportedObj/
 *.pidb.meta
 *.pdb.meta
 *.mdb.meta
+*cs.meta
 
 # Keep Unity's .meta files for assets
 !*.meta
